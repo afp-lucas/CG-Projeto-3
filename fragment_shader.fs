@@ -18,15 +18,15 @@ uniform float intensidadeAmbiente;
 
 uniform int luzLareiraLigada;
 uniform int luzLavaLampLigada;
-uniform int luzExternaLigada;
+uniform int luzVagalumeLigada;
 
 uniform vec3 lightPosLareira;
 uniform vec3 lightPosLavaLamp;
-uniform vec3 lightPosExterna;
+uniform vec3 lightPosVagalume;
 
 uniform vec3 lightColorLareira;
 uniform vec3 lightColorLavaLamp;
-uniform vec3 lightColorExterna;
+uniform vec3 lightColorVagalume;
 
 uniform vec3 emissiveColor;
 
@@ -71,8 +71,8 @@ void main(){
 		}
 	}
 
-	if(ambienteObjeto == 0 && luzExternaLigada == 1){
-		luzes += calculaLuz(lightPosExterna, lightColorExterna, norm, viewDir);
+	if(ambienteObjeto == 0 && luzVagalumeLigada == 1){
+		luzes += calculaLuz(lightPosVagalume, lightColorVagalume, norm, viewDir);
 	}
 
 	vec3 result = (ambient + luzes) * vec3(textureColor) + emissiveColor;
